@@ -44,7 +44,9 @@ public class TimeService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         MyLog.e(TAG, "timer service onStartCommand" + this.toString());
-        currentTime = intent.getLongExtra("currenttime", currentLocalTime);
+        if(intent !=null){
+            currentTime = intent.getLongExtra("currenttime", currentLocalTime);
+        }
         return START_STICKY;
     }
 
